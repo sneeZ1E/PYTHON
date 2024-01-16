@@ -1,0 +1,19 @@
+Vajadzigs:
+    Inputs:
+        Esošās dienas nosaukums (1-7)(P-Sv)
+        Esošās dienas datums (1-31)
+        Esošās dienas mēnesis (1-12)
+        Esošās dienas gads
+        Dzimšanas dienas gads
+        Dzimšanas dienas mēnesis (1-12)
+        Dzimšanas dienas datums (1-31)
+    Outputs:
+        Diena (1-7), kurā dzimis cilvēks
+
+Programmai jārēķina: 
+    Dienu skaits starp dzimšanas dienu un esošo dienu
+        Katra mēnesī esošo dienu skaits
+        Katrā garajā gadā esošo dienu/mēnešu skaits
+    Kāds ir atlikums dalot ar 7
+    No esošās dienas tiek atņemts atlikums 
+        Atlikums nevar būt negatīvs - diena nevar būt atlikums
