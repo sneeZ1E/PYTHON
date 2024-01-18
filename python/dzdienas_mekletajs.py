@@ -88,18 +88,35 @@ def vai_datums_jau_pagajis(esosais_menesis, esosais_datums, dzimsanas_menesis, d
     return True
 
 
-dzimsanas_gads = int(input("Lūdzu ievadiet savu dzimšanas dienas gadu:"))
 
-dzimsanas_menesis = int(input("Lūdzu ievadiet savu dzimšanas dienas mēnesi (1-12):"))
+def ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena):
+    vai_ir_pareizi_ievades_dati = True
+    
+    if dzimsanas_gads<=0 or dzimsanas_menesis<=0 or dzimsanas_datums<=0 or esosais_gads<=0 or esosais_menesis<=0 or esosais_datums<=0 or esosa_nedelas_diena<=0:
+        vai_ir_pareizi_ievades_dati = False
+    
+    if vai_ir_pareizi_ievades_dati == False:
+        print("Nepareizi ievades dati!")
+    
+    return vai_ir_pareizi_ievades_dati
 
-dzimsanas_datums = int(input("Lūdzu ievadiet savu dzimšanas dienas datumu (1-31):"))
+turpinat = "y"
 
-esosais_gads = int(input("Lūdzu ievadiet pašreizējo gadu:"))
+while turpinat == "y":
+    dzimsanas_gads = int(input("Lūdzu ievadiet savu dzimšanas dienas gadu:"))
 
-esosais_menesis = int(input("Lūdzu ievadiet pašreizējo mēnesi (1-12):"))
+    dzimsanas_menesis = int(input("Lūdzu ievadiet savu dzimšanas dienas mēnesi (1-12):"))
 
-esosais_datums = int(input("Lūdzu ievadiet šodienas datumu (1-31):"))
+    dzimsanas_datums = int(input("Lūdzu ievadiet savu dzimšanas dienas datumu (1-31):"))
 
-esosa_nedelas_diena = int(input("Lūdzu ievadiet pašreizējo nedēļas dienu (1-7):"))
+    esosais_gads = int(input("Lūdzu ievadiet pašreizējo gadu:"))
 
-print(dienas_mekletajs(esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums))
+    esosais_menesis = int(input("Lūdzu ievadiet pašreizējo mēnesi (1-12):"))
+
+    esosais_datums = int(input("Lūdzu ievadiet šodienas datumu (1-31):"))
+
+    esosa_nedelas_diena = int(input("Lūdzu ievadiet pašreizējo nedēļas dienu (1-7):"))
+
+    if ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena) == True:
+        print(dienas_mekletajs(esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums))
+    turpinat = input("Vai vēlies mēģināt vēlreiz? (y/n)")
