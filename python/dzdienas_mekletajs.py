@@ -1,3 +1,5 @@
+import math 
+
 def dienas_mekletajs (esosais_gads, esosais_menesis, esosais_datums, esosa_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums):
     menesu_dienu_skaits = [31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     dienu_nosaukumi = ["Nekas", "pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
@@ -93,6 +95,12 @@ def ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, e
     vai_ir_pareizi_ievades_dati = True
     
     if dzimsanas_gads<=0 or dzimsanas_menesis<=0 or dzimsanas_datums<=0 or esosais_gads<=0 or esosais_menesis<=0 or esosais_datums<=0 or esosa_nedelas_diena<=0:
+        vai_ir_pareizi_ievades_dati = False
+
+    if dzimsanas_menesis>12 or dzimsanas_datums>31 or esosais_menesis>12 or esosais_datums>31 or esosa_nedelas_diena>7:
+        vai_ir_pareizi_ievades_dati = False
+
+    if dzimsanas_gads=NaN or dzimsanas_menesis=NaN or dzimsanas_datums=NaN or esosais_gads=NaN or esosais_menesis=NaN or esosais_datums=NaN or esosa_nedelas_diena=NaN:
         vai_ir_pareizi_ievades_dati = False
     
     if vai_ir_pareizi_ievades_dati == False:
