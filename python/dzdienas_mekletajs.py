@@ -121,6 +121,7 @@ while turpinat == "y":
 
         dzimsanas_menesis = int(input("Lūdzu ievadiet savu dzimšanas dienas mēnesi (1-12):"))
 
+        dzimsanas_datums = int(input("Lūdzu ievadiet savu dzimšanas dienas datumu (1-31):"))
 
         esosais_gads = int(input("Lūdzu ievadiet pašreizējo gadu:"))
 
