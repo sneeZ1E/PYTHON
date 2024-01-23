@@ -92,39 +92,47 @@ def vai_datums_jau_pagajis(esosais_menesis, esosais_datums, dzimsanas_menesis, d
 
 
 def ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena):
-    vai_ir_pareizi_ievades_dati = True
     
+    if type(dzimsanas_gads)!=int or type(dzimsanas_menesis)!=int or type(dzimsanas_datums)!=int or type(esosais_gads)!=int or type(esosais_menesis)!=int or type(esosais_datums)!=int or type(esosa_nedelas_diena)!=int:
+        print("Nepareizi ievades dati!")
+        return False
+        
     if dzimsanas_gads<=0 or dzimsanas_menesis<=0 or dzimsanas_datums<=0 or esosais_gads<=0 or esosais_menesis<=0 or esosais_datums<=0 or esosa_nedelas_diena<=0:
-        vai_ir_pareizi_ievades_dati = False
+        print("Nepareizi ievades dati!")
+        return False
 
     if dzimsanas_menesis>12 or dzimsanas_datums>31 or esosais_menesis>12 or esosais_datums>31 or esosa_nedelas_diena>7:
-        vai_ir_pareizi_ievades_dati = False
-
-    if dzimsanas_gads=NaN or dzimsanas_menesis=NaN or dzimsanas_datums=NaN or esosais_gads=NaN or esosais_menesis=NaN or esosais_datums=NaN or esosa_nedelas_diena=NaN:
-        vai_ir_pareizi_ievades_dati = False
-    
-    if vai_ir_pareizi_ievades_dati == False:
         print("Nepareizi ievades dati!")
+        return False
     
-    return vai_ir_pareizi_ievades_dati
+    return True
 
 turpinat = "y"
 
 while turpinat == "y":
-    dzimsanas_gads = int(input("Lūdzu ievadiet savu dzimšanas dienas gadu:"))
+    vai_ir_visi_dati = False
+    try:
+        dzimsanas_gads = int(input("Lūdzu ievadiet savu dzimšanas dienas gadu:"))
 
-    dzimsanas_menesis = int(input("Lūdzu ievadiet savu dzimšanas dienas mēnesi (1-12):"))
+        dzimsanas_menesis = int(input("Lūdzu ievadiet savu dzimšanas dienas mēnesi (1-12):"))
 
-    dzimsanas_datums = int(input("Lūdzu ievadiet savu dzimšanas dienas datumu (1-31):"))
+        dzimsanas_datums = int(input("Lūdzu ievadiet savu dzimšanas dienas datumu (1-31):"))
 
-    esosais_gads = int(input("Lūdzu ievadiet pašreizējo gadu:"))
+        esosais_gads = int(input("Lūdzu ievadiet pašreizējo gadu:"))
 
-    esosais_menesis = int(input("Lūdzu ievadiet pašreizējo mēnesi (1-12):"))
+        esosais_menesis = int(input("Lūdzu ievadiet pašreizējo mēnesi (1-12):"))
 
-    esosais_datums = int(input("Lūdzu ievadiet šodienas datumu (1-31):"))
+        esosais_datums = int(input("Lūdzu ievadiet šodienas datumu (1-31):"))
 
-    esosa_nedelas_diena = int(input("Lūdzu ievadiet pašreizējo nedēļas dienu (1-7):"))
+        esosa_nedelas_diena = int(input("Lūdzu ievadiet pašreizējo nedēļas dienu (1-7):"))
 
-    if ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena) == True:
+        vai_ir_visi_dati = True
+    except:
+        print("Nepareizi ievades dati!")
+        vai_ir_visi_dati = False
+        
+
+    if vai_ir_visi_dati == True:
         print(dienas_mekletajs(esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums))
+
     turpinat = input("Vai vēlies mēģināt vēlreiz? (y/n)")
