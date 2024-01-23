@@ -121,7 +121,6 @@ while turpinat == "y":
 
         dzimsanas_menesis = int(input("Lūdzu ievadiet savu dzimšanas dienas mēnesi (1-12):"))
 
-        dzimsanas_datums = int(input("Lūdzu ievadiet savu dzimšanas dienas datumu (1-31):"))
 
         esosais_gads = int(input("Lūdzu ievadiet pašreizējo gadu:"))
 
@@ -137,7 +136,7 @@ while turpinat == "y":
         vai_ir_visi_dati = False
         
 
-    if vai_ir_visi_dati == True:
+    if vai_ir_visi_dati and ievades_datu_parbaude(esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums):
         print(dienas_mekletajs(esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums))
 
     turpinat = input("Vai vēlies mēģināt vēlreiz? (y/n)")
