@@ -1,5 +1,3 @@
-import math 
-
 def dienas_mekletajs (esosais_gads, esosais_menesis, esosais_datums, esosa_diena, dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums):
     menesu_dienu_skaits = [31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     dienu_nosaukumi = ["Nekas", "pirmdiena", "otrdiena", "trešdiena", "ceturtdiena", "piektdiena", "sestdiena", "svētdiena"]
@@ -93,6 +91,9 @@ def vai_datums_jau_pagajis(esosais_menesis, esosais_datums, dzimsanas_menesis, d
 
 def ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, esosais_gads, esosais_menesis, esosais_datums, esosa_nedelas_diena):
     
+    menesu_dienu_skaits = [31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    
     if type(dzimsanas_gads)!=int or type(dzimsanas_menesis)!=int or type(dzimsanas_datums)!=int or type(esosais_gads)!=int or type(esosais_menesis)!=int or type(esosais_datums)!=int or type(esosa_nedelas_diena)!=int:
         print("Nepareizi ievades dati!")
         return False
@@ -101,7 +102,11 @@ def ievades_datu_parbaude(dzimsanas_gads, dzimsanas_menesis, dzimsanas_datums, e
         print("Nepareizi ievades dati!")
         return False
 
-    if dzimsanas_menesis>12 or dzimsanas_datums>31 or esosais_menesis>12 or esosais_datums>31 or esosa_nedelas_diena>7:
+    if dzimsanas_menesis>12 or esosais_menesis>12 or esosa_nedelas_diena>7:
+        print("Nepareizi ievades dati!")
+        return False
+    
+    if dzimsanas_datums>menesu_dienu_skaits[dzimsanas_menesis] or esosais_datums>menesu_dienu_skaits[esosais_menesis]:
         print("Nepareizi ievades dati!")
         return False
     
