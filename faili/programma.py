@@ -23,7 +23,7 @@ def uzrakstit_vestuli(vards, uzvards, dzimums, vecums, index):
         galotne1 = "s"
         galotne2 = "is"
 
-    fails = open("./vestules/vestule{}.txt".format(index), "w", encoding="utf-8")
+    fails = open("faili/vestules/vestule{}.txt".format(index), "w", encoding="utf-8")
     fails.write("Sveik{}, {} {}! \n".format(galotne1, vards, uzvards))
     fails.write("Jūs esat laimēj{} {}0 EUR!".format(galotne2, vecums)) 
     
@@ -35,7 +35,7 @@ def apstradat_datus(dati):
         dzimums = "s"
     else:
         dzimums = "v"
-    return dati[0], dati[1], dati[3][:-1], dati[4][:-1], dzimums
+    return [dati[0], dati[1], dati[3][:-1], dati[4][:-1], dzimums]
 
 vardi = ["Anna", "Maija", "Jānis", "Kaspars"]
 uzvardi = ["Bērziņa", "Paija", "Ozols", "Kasprets"]
@@ -54,10 +54,10 @@ for i in range(len(vardi) ):
 
 
 cilveki = nolasit("faili/cilveki.txt")
-index = 0
+index = 1
 for cilveks in cilveki:
     cilveka_dati = apstradat_datus(cilveks)
-    uzrakstit_vestuli(cilveka_dati, index)
+    uzrakstit_vestuli(cilveka_dati[0], cilveka_dati[1], cilveka_dati[2], cilveka_dati[3], index)
     index+=1
     
 
