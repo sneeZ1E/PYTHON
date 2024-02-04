@@ -31,11 +31,11 @@ def uzrakstit_vestuli(vards, uzvards, dzimums, vecums, index):
 
 def apstradat_datus(dati):
     dati = dati.split()
-    if dati[4] == "Sieviete":
+    if dati[4] == "Sieviete,":
         dzimums = "s"
     else:
         dzimums = "v"
-    return [dati[0], dati[1], dati[3][:-1], dati[4][:-1], dzimums]
+    return [dati[0], dati[1], dzimums, dati[3][:-1]]
 
 vardi = ["Anna", "Maija", "Jānis", "Kaspars"]
 uzvardi = ["Bērziņa", "Paija", "Ozols", "Kasprets"]
